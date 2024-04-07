@@ -1,1 +1,20 @@
-
+Câu 1: b. if (a<b) min = a; else min = b;
+Câu 2: d. Ứng dụng hay gặp của cấu trúc lệnh switch là tạo MENU.
+Câu 3: c. Phải là hằng (kiểu số nguyên hoặc kiểu ký tự), chứ không thể là biến hay biểu thức chứa biến.
+Câu 4: b. In ra các số nguyên chia hết cho 5 nằm trong khoảng từ 1 tới 50.
+Câu 5: d. Có thể thiếu bất cứ biểu thức nào trong ba biểu thức trên.
+Câu 6: b. continue;
+Câu 7: c. In ra 10
+Câu 8: a. Trong 3 kiểu lặp: while, do- while và for thì do- while là linh hoạt nhất.
+Câu 9: c. B
+Câu 10: a. 7
+Câu 11: d. The sum is 15
+Câu 12: d. 120 30 90
+Câu 13: c. 6
+Câu 14: a. while ( c <= 5 ) { product *= c; c++; }
+Câu 15: b. Hello, world! Hello, world!
+Câu 16: c. Hello, world! Hello, world! Hello, world!
+Câu 17: d. Không in gì
+Câu 18: a. Hello, world!
+Câu 19: b. Hello, world! Hello, world!
+Câu 20: a. Hello, world! Hello, world!
