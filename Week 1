@@ -1,0 +1,412 @@
+Bài 1: Print the elements of a linked list
+/*
+  head pointer input could be NULL as well for empty list
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+void Print(Node *head)
+{
+   while(head != NULL)
+   {
+       cout<<head->data<<"\n";
+       head = head->next;
+   }
+}
+Bài 2: Insert a node at the tail of a linked list
+/*
+  head pointer input could be NULL as well for empty list
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+Node* Insert(Node *head,int data)
+{
+    Node *start = head;
+   Node* n = (Node*) malloc(sizeof(Node));
+    n -> data = data;
+    n -> next = NULL;
+    if(head != NULL)
+    {
+    while(head -> next != NULL)
+    {
+        head = head ->next;
+    }
+        head -> next = n;
+        head = start;
+    }
+    else
+    {
+        head = n;
+    }
+    
+        
+    return head;
+}
+Bài 3: Insert a node at the head of a linked list
+/*
+  Initially head pointer argument could be NULL for empty list
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+return back the pointer to the head of the linked list in the below method.
+*/
+Node* Insert(Node *head,int data)
+{
+  Node *n = new Node();
+  n->data = data;
+  n->next=head;
+  return head = n;  
+}
+Bài 4: Insert a node at a specific position in a linked list
+/*
+  The linked list will not be empty and position will always be valid
+  First element in the linked list is at position 0
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+Node* InsertNth(Node *head, int data, int position)
+{
+  // Complete this method only
+  // Do not write main function. 
+    Node * a = new Node();
+    a->data = data;
+    if(position==0){
+        a->next = head;
+        head = a;
+    }else{
+         Node *tmp = head;
+        while(position>1){
+            position--;
+            tmp = tmp->next;
+        }
+        a->next = tmp->next;
+        tmp->next = a;
+    }
+    return head;
+}
+Bài 5: Delete a node
+/*
+  Delete Node at a given position in a linked list 
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+Node* Delete(Node *head, int position)
+{
+    if(position == 0){
+        return head->next;
+    }else{
+        int i;
+        Node* a = head;
+        for(i = 1; i < position; i++)
+            a = a->next;
+        a->next = a->next->next;
+        return head;
+    }
+}
+Bài 6: Print a reverse
+  
+*/
+Print elements of a linked list in reverse order as standard output
+  head pointer could be NULL as well for empty list
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+void ReversePrint(Node *head)
+{
+  // This is a "method-only" submission. 
+  // You only need to complete this method.
+    if(head == NULL)
+        return;
+    ReversePrint(head->next);
+    cout << head->data << endl;
+}
+Bài 7: Reverse a linked list
+/*
+  Reverse a linked list and return pointer to the head
+  The input list will have at least one element  
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+Node* Reverse(Node *head)
+{
+    if(head == NULL)
+        return head;
+    Node* current = head;
+    Node* front = head->next;
+    head->next = NULL;
+    while(front != NULL){
+        Node* tmp = front;
+        front = front->next;
+        tmp->next = current;
+        current = tmp;
+    }
+    return current;
+}
+Bài 8: Compare two linked lists
+/*
+  Compare two linked lists A and B
+  Return 1 if they are identical and 0 if they are not. 
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+int CompareLists(Node *headA, Node* headB)
+{
+  // This is a "method-only" submission. 
+  // You only need to complete this method
+    if(headA == NULL && headB == NULL)
+        return 1;
+    else{
+        Node* a = headA;
+        Node* b = headB;
+        int result = 1;
+        while(a != NULL){
+            if(a->data != b->data){
+                result = 0;
+                break;
+            }
+            a = a->next;
+            b = b->next;
+        }
+        if((a==NULL && b!=NULL)||(b==NULL&&a!=NULL))
+            result = 0;
+        return result;
+    }
+}
+Bài 9: Merge two sorted linked lists
+/*
+  Merge two sorted lists A and B as one linked list
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+Node* MergeLists(Node *a, Node*b)
+{
+  // This is a "method-only" submission. 
+  // You only need to complete this method 
+    Node* result = NULL;
+ 
+  /* Base cases */
+  if (a == NULL) 
+     return(b);
+  else if (b==NULL) 
+     return(a);
+ 
+  /* Pick either a or b, and recur */
+  if (a->data <= b->data) 
+  {
+     result = a;
+     result->next = MergeLists(a->next, b);
+  }
+  else
+  {
+     result = b;
+     result->next = MergeLists(a, b->next);
+  }
+  return(result);
+}
+Bài 10: Get node value
+/*
+  Get Nth element from the end in a linked list of integers
+  Number of elements in the list will always be greater than N.
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+Node* Reverse(Node *head)
+{
+    if(head == NULL)
+        return head;
+    Node* current = head;
+    Node* front = head->next;
+    head->next = NULL;
+    while(front != NULL){
+        Node* tmp = front;
+        front = front->next;
+        tmp->next = current;
+        current = tmp;
+    }
+    return current;
+}
+
+int GetNode(Node *head,int positionFromTail)
+{
+        head = Reverse(head);
+    int i = 0;
+    for(i = 0; i < positionFromTail; i++)
+        head = head->next;
+    return head->data;
+}
+Bài 11: Delete duplicate-value nodes form a sorted linked list
+/*
+  Remove all duplicate elements from a sorted linked list
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+Node* RemoveDuplicates(Node *head)
+{
+    if(head == NULL)
+        return head;
+    Node* a = head;
+    while(a){
+        Node* b = a->next;
+        while(b && b->data == a->data)
+            b = b->next;
+        a->next = b;
+        a = a->next;
+    }
+    return head;
+}
+Bài 12: Cycle Detection
+/*
+  Detect loop in a linked list 
+  List could be empty also
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+int HasCycle(Node* head)
+{
+    Node* a = head;
+    while(a){
+        Node* b = head;
+        while(b != a){
+            if(a->next == b)
+                return 1;
+            b = b->next;
+        }
+        a = a -> next;
+    }
+    return 0;
+}
+Bài 13: Find merge point of two lists
+/*
+   Find merge point of two linked lists
+   Node is defined as
+   struct Node
+   {
+       int data;
+       Node* next;
+   }
+*/
+int FindMergeNode(Node *headA, Node *headB)
+{
+    Node* a = headA->next;
+    while(a){
+        Node* b = headB->next;
+        while(b){
+            if(a == b)
+                return a->data;
+            b = b->next;
+        }
+        a = a->next;
+    }
+}
+Bài 14: Inserting a node into a sorted doubly linked list
+/*
+    Insert Node in a doubly sorted linked list 
+    After each insertion, the list should be sorted
+   Node is defined as
+   struct Node
+   {
+     int data;
+     Node *next;
+     Node *prev
+   }
+*/
+Node* SortedInsert(Node *head,int data)
+{
+    if(head == NULL){
+        Node* t = new Node;
+        t->data = data;
+        t->prev = NULL;
+        t->next = NULL;
+        return t;
+    }else{
+        Node* a = head->prev;
+        Node* b = head;
+        while(b && b->data<data){
+            a = b;
+            b = b->next;
+        }
+        Node* t = new Node;
+        t->data = data;
+        t->next = b;
+        t->prev = a;
+        if(a){
+            a->next = t;
+        }
+        if(b){
+            b->prev = t;
+        }
+        while(head->prev)
+            head = head->prev;
+        return head;
+    } 
+}
+Bài 15: Reverse a doubly linked list
+/*
+   Reverse a doubly linked list, input list may also be empty
+   Node is defined as
+   struct Node
+   {
+     int data;
+     Node *next;
+     Node *prev
+   }
+*/
+Node* Reverse(Node* head)
+{
+    if(head == NULL)
+        return head;
+    Node* a = head->prev;
+    while(head){
+        head->prev = head->next;
+        head->next = a;
+        a = head;
+        head = head->prev;
+    }
+    return a;
+}
